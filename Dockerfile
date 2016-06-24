@@ -39,4 +39,6 @@ RUN rm -rf /var/lib/apt/lists/*
 # enable the universe
 RUN sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
 
+RUN locale-gen en_US.UTF-8
+
 CMD ["/sbin/init"]
