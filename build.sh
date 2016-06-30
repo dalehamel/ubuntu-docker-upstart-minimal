@@ -1,7 +1,7 @@
-
-local_sum=$(sha256sum ubuntu-trusty-core-cloudimg-amd64-root.tar.gz | awk '{print $1}')
+local_sum="none"
 
 if [ -f ubuntu-trusty-core-cloudimg-amd64-root.tar.gz ];then
+  local_sum=$(sha256sum ubuntu-trusty-core-cloudimg-amd64-root.tar.gz | awk '{print $1}')
   remote_sum=$(curl -s https://partner-images.canonical.com/core/trusty/current/SHA256SUMS | grep ubuntu-trusty-core-cloudimg-amd64-root.tar.gz  | awk '{print $1}')
 fi
 
