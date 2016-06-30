@@ -5,6 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD ubuntu-trusty-core-cloudimg-amd64-root.tar.gz /
 
 ADD init-fake.conf /etc/init/fake-container-events.conf
+ADD upstart-notify.sh /usr/local/bin/upstart-notify.sh
+RUN chmod a+x /usr/local/bin/upstart-notify.sh
 
 # Divert initctl temporarily so apt-update can work
 RUN dpkg-divert --local --rename --add /sbin/initctl
